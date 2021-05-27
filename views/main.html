@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+<div class="nav">
+ <div class="box logo">
+    <a href="/">
+    <i class ="xi-hotel"> YOONSHOTEL</i> 
+    </a>
+ </div>
+   
+   <div class="box info">
+{% if isLogin %} 
+{{ member.memId}}님 로그인..
+<a href="/member/mypage"><i class ="xi-home">마이페이지</i></a>
+<a href="/member/logout"><i class ="xi-log-out">로그아웃</i></a>
+{% else %}
+<a href="/member/login"><i class ="xi-log-in">로그인</i></a>
+<a href="/member/join"><i class ="xi-log-out">회원가입</i></a>
+    </div>
+{% endif %} 
+</div>
+
+
+{% endblock %}  

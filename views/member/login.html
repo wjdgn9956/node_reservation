@@ -1,0 +1,18 @@
+{% extends "../layout.html" %} 
+
+{% block content %}  
+<div class="form_wrap">
+<form method ="post" action="/member/login" autocomplete="off">
+    <div class="logo">
+        <a href="/"> 
+        <i class ="xi-hotel"></i> 
+        <span>YOONSHOTEL</span>
+        </a> 
+        </div> 
+        <div class="title">로그인</div>
+    <input type="text" name ="memId" placeholder="아이디">
+    <input type="password" name ="memPw" placeholder="비밀번호">
+    <input class ="btn1" type="submit" value ="로그인">
+</form>
+</div>
+{% endblock %}  

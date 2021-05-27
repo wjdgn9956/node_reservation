@@ -1,0 +1,11 @@
+{% extends "../layout.html" %} 
+
+{% block content %}  
+
+{% if isLogin %} 
+{{ member.memId}}님의 마이페이지
+<a href="/member/logout">로그아웃</a>
+{% endif %}
+
+
+{% endblock %} 

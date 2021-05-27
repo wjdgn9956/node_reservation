@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+/* 공통 s*/
+body{ padding: 0; margin:0;}
+a { text-decoration: none; color:black;}
+* { font-family: 'Noto Sans KR', sans-serif;}
+ul { list-style: none; padding:0; margin:0;}
+
+
+/* 공통 E */
+.form_wrap .title { font-weight: 700; text-align: center; font-size: 17px; margin-bottom: 30px;}
+dl { display: table; width:100%;}
+dt { display: table-cell; width:120px;}
+dd { display: table-cell;}
+
+
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+    width:100%; height:30px; border-radius: 7px; outline: none; border: 1px solid #948c8c;
+    margin-bottom: 10px;
+}
+
+.form_wrap { width:500px; position: fixed; left: 360px; top: 70px; }
+.form_wrap .btn1 {display: block; width:100%; height:40px; background-color: black; color:white;
+cursor: pointer; border-radius: 10px;}
+.form_wrap .btn1:hover { background-color: cornflowerblue; color:white; border:0;}
+.form_wrap .logo {text-align: center; font-size: 24px; margin-bottom: 20px;}
+
+
+/* main페이지 상단메뉴 */
+.nav  {  background-color: lightgray; padding : 10px;}
+.nav .logo {float:left; width: calc( 100% - 400px); text-align: center;
+font-size: 20px;}
+.nav .info {float: right; width:400px; line-height: 30px;}
+.nav .info a { padding:5px;}
+.nav:after{ clear:both; content: ""; display: block;}
+
+
+
