@@ -3,6 +3,7 @@
 /* 공통 s*/
 body{ padding: 0; margin:0;}
 a { text-decoration: none; color:black;}
+i { font-family: 'Noto Sans KR', sans-serif !important;}
 * { font-family: 'Noto Sans KR', sans-serif !important;}
 ul { list-style: none; padding:0; margin:0;}
 
@@ -34,6 +35,38 @@ font-size: 20px;}
 .nav .info {float: right; width:400px; line-height: 30px;}
 .nav .info a { padding:5px;}
 .nav:after{ clear:both; content: ""; display: block;}
+
+
+/* swiper 메인 배너영역 S */
+
+.swiper-container{
+    height:600px;
+    margin-bottom:60px;
+}
+
+.swiper-container img{
+    height:600px;
+    width:100%;
+}
+
+.swiper-container .swiper-button-next,
+.swiper-container .swiper-button-prev{
+    color:lightblue;
+}
+
+.swiper-container .swiper-pagination-bullet{
+    width:12px;
+    height:12px;
+    
+    box-shadow: 2px 2px 3px white;
+    
+}
+.swiper-container .swiper-pagination-bullet-active{
+    width:70px;
+    border-radius: 20px;
+    background-color:lightblue;
+}
+/* swiper 메인 배너영역 E */
 
 
 
