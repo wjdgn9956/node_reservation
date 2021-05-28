@@ -33,7 +33,9 @@ router.route("/join")
             })
 
             // 회원가입 성공 - 로그인페이지로 이동
-            return res.send("member/login");
+            
+            return res.render("member/login");
+            
 
         } catch (err) {
             next(err); // 에러처리 미들웨어로 이동
