@@ -16,14 +16,15 @@ router.route("/join")
     .post(joinValidator, async (req, res, next) => {
         try {
             const hash = await bcrypt.hash(req.body.memPw, 10);
-            const sql = `INSERT INTO member (memId, memPw, email, phone)
-                            VALUES(:memId, :memPw, :email, :phone)`;
+            const sql = `INSERT INTO member (memId, memPw, email, phone, address)
+                            VALUES(:memId, :memPw, :email, :phone, :address)`;
 
             const replacements = {
                     memId : req.body.memId,
                     memPw : hash,
                     email : req.body.email,
                     phone : req.body.phone,
+                    address : req.body.address,
 
             }   
             

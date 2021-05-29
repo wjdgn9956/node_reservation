@@ -3,7 +3,7 @@
 /* 공통 s*/
 body{ padding: 0; margin:0;}
 a { text-decoration: none; color:black;}
-i { font-family: 'Noto Sans KR', sans-serif !important;}
+
 * { font-family: 'Noto Sans KR', sans-serif !important;}
 ul { list-style: none; padding:0; margin:0;}
 
@@ -29,10 +29,11 @@ cursor: pointer; border-radius: 10px;}
 
 
 /* main페이지 상단메뉴 */
-.nav  {  background-color: lightgray; padding : 10px;}
-.nav .logo {float:left; width: calc( 100% / 2 ); text-align: right;
+.nav  {  background-color: 
+    #dedcd7; padding : 10px;}
+.nav .logo {float:left; width: calc( 100% / 2 + 30px); text-align: right;
 font-size: 20px;}
-.nav .info {float: right; width:400px; line-height: 30px;}
+.nav .info {float: right;  line-height: 30px;}
 .nav .info a { padding:5px;}
 .nav:after{ clear:both; content: ""; display: block;}
 
