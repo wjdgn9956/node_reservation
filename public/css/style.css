@@ -52,7 +52,7 @@ font-size: 20px;}
 
 .swiper-container .swiper-button-next,
 .swiper-container .swiper-button-prev{
-    color:lightblue;
+    color:#dedcd7;
 }
 
 .swiper-container .swiper-pagination-bullet{
@@ -65,7 +65,7 @@ font-size: 20px;}
 .swiper-container .swiper-pagination-bullet-active{
     width:70px;
     border-radius: 20px;
-    background-color:lightblue;
+    background-color:#dedcd7;
 }
 /* swiper 메인 배너영역 E */
 
