@@ -11,6 +11,10 @@ router.route("/")
       // 게시글 등록 form
       .get ((req, res, next) => {
           let data = {};
+
+          if (!req.isLogin) {
+              return res.send(`<script>history.back();</script>`)
+          }
           res.render("board/form");
       })
 
