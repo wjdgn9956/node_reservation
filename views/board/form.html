@@ -1,0 +1,37 @@
+{% extends "../layout.html" %}  
+
+{% block script %}  
+<script src = "/ckeditor/ckeditor.js"></script>
+{% endblock %}  
+
+{% block content %}  
+
+{% include "../header.html" %}
+
+<form method="post" action="/board{{ '?_method=PATCH' if idx }}" target='ifrmHidden'>
+	{% if idx %}
+	<input type='hidden' name='idx' value='{{ idx }}'>
+	{% endif %}
+	<dl>
+		<dt>글쓴이</dt>
+		<dd>
+			<input type='text' name='poster' value='{{ poster }}'>
+		</dd>
+	</dl>
+	<dl>
+		<dt>제목</dt>
+		<dd>
+			<input type='text' name='subject' value='{{ subject }}'>
+		</dd>
+	</dl>
+	<dl>
+		<dt>내용</dt>
+		<dd>
+			<textarea name='contents' id='contents'>{{ contents | safe }}</textarea>
+		</dd>
+	</dl>
+	<span id='addImage'>[이미지 추가]</span><br>
+	<input type='submit' class ="writeboard" value="{{ '글수정' if idx else '글작성' }}">
+</form>
+
+{% endblock %}  

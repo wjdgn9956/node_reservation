@@ -2,6 +2,9 @@
 
 
 $(() => {
+
+   
+
     /**주소 검색 */
     $(".address").click(function(){
         new daum.Postcode({
@@ -10,4 +13,13 @@ $(() => {
             }
         }).open();
     })
+});
+
+
+$(() => {
+    
+     // CKEIDTOR 로드
+     CKEDITOR.replace("contents");
+     CKEDITOR.config.height = 350;
 })
+

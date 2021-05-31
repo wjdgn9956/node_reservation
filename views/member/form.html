@@ -2,18 +2,21 @@
 
 {% block content %}
 <div class="form_wrap">
-<form method ="post" action="/member/join" target ="ifrmHidden" autocomplete="off">
+<form method ="post" action="/member/join{{ '?_method=PATCH' if isLogin }}" target ="ifrmHidden" autocomplete="off">
+    {% if idx %}
+	<input type='hidden' name='idx' value='{{ idx }}'>
+	{% endif %}
   <div class="logo">
     <a href="/"> 
      <i class ="xi-hotel"></i> 
      <span>YOONSHOTEL</span>
     </a> 
    </div> 
-   <div class="title">회원가입</div>
+   <div class="title">{{ '회원정보수정' if isLogin else '회원가입' }}</div>
     <dl>
         <dt>아이디</dt>
         <dd>
-            <input type="text" name ="memId">
+            <input type="text" name ="memId" value ="{{ member.memId }}">
         </dd>
     </dl>
     <dl>
@@ -31,22 +34,22 @@
     <dl>
         <dt>이메일</dt>
         <dd>
-            <input type="email" name ="email">
+            <input type="email" name ="email" value ="{{ member.email }}">
         </dd>
     </dl>
     <dl>
         <dt>휴대전화</dt>
         <dd>
-            <input type="number" name ="phone">
+            <input type="number" name ="phone" value = "{{ member.phone }}">
         </dd>
     </dl>
     <dl>
         <dt>주소</dt>
         <dd>
-            <input type="text" name ="address" class="address">
+            <input type="text" name ="address" class="address" value = "{{ member.address }}">
         </dd>
     </dl>
-    <input  class ="btn1" type="submit" value ="가입하기">
+    <input  class ="btn1" type="submit" value ="{{ '회원정보수정' if isLogin else '가입하기' }}">
 </form>
 </div> 
 

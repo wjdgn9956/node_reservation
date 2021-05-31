@@ -11,7 +11,7 @@ ul { list-style: none; padding:0; margin:0;}
 /* 공통 E */
 .form_wrap .title { font-weight: 700; text-align: center; font-size: 17px; margin-bottom: 30px;}
 dl { display: table; width:100%;}
-dt { display: table-cell; width:120px;}
+dt { display: table-cell; width:120px; vertical-align: middle;}
 dd { display: table-cell;}
 
 
@@ -70,4 +70,29 @@ font-size: 20px;}
 /* swiper 메인 배너영역 E */
 
 
+/* 게시판 board */
+.writeboard { width: 200px; height: 40px; margin:0 auto; display: block;
+background-color: #dedcd7; color:black; border:0; cursor: pointer; border-radius: 10px;
+margin-top:30px;}
 
+#addImage { position:absolute; left: 130px;}
+
+.board_info { margin:0 auto; margin-top : 60px; width: 500px; display: block; 
+border-right: 2px solid #dedcd7; border-left: 2px solid #dedcd7; border-radius: 15px;}
+.board_info div { border-bottom:  2px solid #dedcd7; padding: 10px; border-radius: 15px;}
+.board_info div:first-child { border-top: 2px solid #dedcd7; border-radius: 15px;}
+.board_info .contents .box1 { position: absolute; top: 2px; left: 10px;}
+.board_info .contents .box2 { position: absolute; top: -14px;}
+.board_info .contents { padding: 50px; position: relative; }
+
+.board_info2 { text-align: center; margin-top: 30px;}
+.board_info2 a { display: inline-block; background-color: #dedcd7; color:black;
+width: 100px; height: 30px; line-height: 30px; margin:0 10px; border-radius: 10px;}
+.board_info2 a:hover { background-color: black; color: white;}
+
+/* board/list */
+.board_list {margin:0 auto; width: 600px; border: 4px solid #dedcd7; margin-top:80px; padding:30px;
+border-radius: 15px;}
+.board_list li { border-bottom: 2px solid #dedcd7; padding:15px;}
+.board_list li:hover a { color: lightsalmon;}
+.board_list .pagination {text-align: right;}

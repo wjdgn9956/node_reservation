@@ -8,11 +8,15 @@ const router = express.Router();
 // 회원가입 처리 //
 router.route("/join")
     .get((req, res, next) => { // 회원가입 폼
+
+        /** 
         if (req.isLogin) { //로그인 상태인 경우 접근 불가.
             return res.send("<script>history.back();</script>");
         }
+        */
         res.render("member/form");
     })
+    // 회원가입 처리 구현 //
     .post(joinValidator, async (req, res, next) => {
         try {
             const hash = await bcrypt.hash(req.body.memPw, 10);
@@ -36,12 +40,15 @@ router.route("/join")
             // 회원가입 성공 - 로그인페이지로 이동
             
             return res.render("member/login");
+
+          
             
 
         } catch (err) {
             next(err); // 에러처리 미들웨어로 이동
         }
     })
+  
 
 // 로그인 처리//
 router.route("/login")
@@ -80,7 +87,7 @@ router.route("/login")
             next(err); // 에러처리 미들웨어로 이동
         }
     });
-
+    // 회원 로그아웃 //
     router.get("/logout", (req, res, next) => {
         req.session.destroy();
         delete req.member;
@@ -94,6 +101,47 @@ router.route("/login")
     router.get("/mypage", (req, res, next) => {
         res.render("member/mypage");
     })
+
+    /** 회원 정보 수정 */
+    router.route("/join")
+    .get((req, res, next) => {
+        if (!req.isLogin) {
+           return res.send("<script>history.back();</script>");
+        }
+        res.render("member/form");  
+    })
+    .patch(joinValidator, async (req, res, next) => {
+         try {
+           const sql = `UPDATE member
+                           SET 
+                           memId = :memId,
+                           email = :email,
+                           phone = :phone,
+                           address = :address
+                           WHERE 
+                               memId = :memId`;
+           const replacements = {
+               memId : req.body.memId,
+               email : req.body.email,
+               phone : req.body.phone,
+               address :req.body.address,
+           };
+           const result = await sequelize.query(sql,{
+               replacements,
+               type: QueryTypes.UPDATE,
+           });
+
+           if (!result) {
+               throw new Error("회원정보 수정 실패!");    
+           }
+
+           return res.redirect("/member/mypage");
+
+         } catch(err){
+            return res.send(`<script>alert('${err.message}');history.back();</script>`);
+         }
+    });
+         
     
  
 

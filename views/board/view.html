@@ -1,0 +1,21 @@
+{% extends "../layout.html" %}  
+
+{% block content %}  
+{% include "../header.html" %}
+<div class="board_info">
+<div class="poster"><strong>작성자</strong> : {{ poster }}</div> 
+<div class="subject"><strong>제목</strong> : {{ subject }}</div>
+<div class="contents">
+    <span class="box1"><strong>내용</strong> :</span>
+    <span class="box2"> {{ contents | safe}}</span>
+</div>
+</div>
+
+
+<div class="board_info2">
+    <a href='/board/list'>게시글 목록</a>
+    <a href='/board/delete/{{ idx }}' onclick="return confirm('정말 삭제하시겠습니까?');">게시글 삭제</a>
+    <a href='/board?idx={{ idx }}'>게시글 수정</a>
+    <a href='/board'>게시글 등록</a>
+</div>
+{% endblock %}  

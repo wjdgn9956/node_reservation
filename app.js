@@ -7,9 +7,12 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const morgan = require("morgan");
 const { sequelize } = require("./models");
+const { loginSession } = require("./middlewares/login_session");
+
+/** 라우터 */
 const memberRouter = require("./routes/member");
 const mainRouter = require("./routes/main");
-const { loginSession } = require("./middlewares/login_session");
+const boardRouter = require("./routes/board");
 
 
 dotenv.config();
@@ -54,9 +57,13 @@ app.use(session({
 
 }));
 app.use(loginSession);
+
 /** 라우터 등록 */
 app.use("/member", memberRouter);
 app.use("/", mainRouter);
+app.use("/board", boardRouter);
+
+
 // 없는 페이지 미들웨어 처리
 app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} 는 없는 페이지 입니다.`);
