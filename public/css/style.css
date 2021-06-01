@@ -6,6 +6,7 @@ a { text-decoration: none; color:black;}
 
 * { font-family: 'Noto Sans KR', sans-serif !important;}
 ul { list-style: none; padding:0; margin:0;}
+.layout_width { max-width: 1200px;}
 
 
 /* 공통 E */
@@ -21,7 +22,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="num
     margin-bottom: 10px;
 }
 
-.form_wrap { width:500px; position: fixed; left: 360px; top: 70px; }
+.form_wrap { width:500px; position: fixed; left: 650px; top: 120px; }
 .form_wrap .btn1 {display: block; width:100%; height:40px; background-color: black; color:white;
 cursor: pointer; border-radius: 10px;}
 .form_wrap .btn1:hover { background-color: cornflowerblue; color:white; border:0;}

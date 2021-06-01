@@ -1,7 +1,7 @@
 {% extends "../layout.html" %} 
 
 {% block content %}
-<div class="form_wrap">
+<div class="form_wrap layout_width">
 <form method ="post" action="/member/join{{ '?_method=PATCH' if isLogin }}" target ="ifrmHidden" autocomplete="off">
     {% if idx %}
 	<input type='hidden' name='idx' value='{{ idx }}'>

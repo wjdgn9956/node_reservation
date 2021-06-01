@@ -42,6 +42,6 @@ module.exports.joinValidator = async (req, res, next) => {
 
         next(); // 다음 미들웨어로 이동
     } catch (err) {
-        return res.send(`<script>alert('${err.message}');history.back();</script>`);
+        return res.send(`<script>alert('${err.message}');</script>`);
     }
 }
