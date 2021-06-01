@@ -109,20 +109,30 @@ router.route("/login")
     })
     .patch(joinValidator, async (req, res, next) => {
          try {
+
+            const replacements = {
+                email : req.body.email,
+                phone : req.body.phone,
+                address :req.body.address,
+                idx : req.member.idx,
+            };
+
+            let addSet = "";
+            if (req.body.memPw) {
+                addSet += ", memPw = :memPw";
+                const hash = await bcrypt.hash(req.body.memPw, 10);
+                replacements.memPw = hash;
+            }
+
            const sql = `UPDATE member
                            SET 
-                           memId = :memId,
                            email = :email,
                            phone = :phone,
                            address = :address
+                           ${addSet}
                            WHERE 
-                               memId = :memId`;
-           const replacements = {
-               memId : req.body.memId,
-               email : req.body.email,
-               phone : req.body.phone,
-               address :req.body.address,
-           };
+                               idx = :idx`;
+           
            const result = await sequelize.query(sql,{
                replacements,
                type: QueryTypes.UPDATE,
@@ -132,7 +142,7 @@ router.route("/login")
                throw new Error("회원정보 수정 실패!");    
            }
 
-           return res.redirect("/member/mypage");
+           return res.send("<script>parent.location.href='/member/mypage';</script>");
 
          } catch(err){
             return res.send(`<script>alert('${err.message}');history.back();</script>`);

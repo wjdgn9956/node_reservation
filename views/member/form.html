@@ -16,7 +16,11 @@
     <dl>
         <dt>아이디</dt>
         <dd>
+            {% if isLogin %}
+            {{ member.memId }}
+            {% else %} 
             <input type="text" name ="memId" value ="{{ member.memId }}">
+            {% endif %}
         </dd>
     </dl>
     <dl>
