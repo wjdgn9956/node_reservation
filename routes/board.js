@@ -9,13 +9,21 @@ const router = express.Router();
 
 router.route("/")
       // 게시글 등록 form
-      .get ((req, res, next) => {
+      .get (async (req, res, next) => {
           let data = {};
+          if (req.query.idx) { // 게시글 수정인 경우
+             data = await board.get(req.query.idx);
+             if (!data) {
+                 return res.send(`<script>alert('수정할 데이터가 존재하지 않습니다');history.back();</script>`);
+             }
+          }
 
+          /** 
           if (!req.isLogin) {
               return res.send(`<script>history.back();</script>`)
           }
-          res.render("board/form");
+          */
+          res.render("board/form", data);
       })
 
       // 게시글 등록
@@ -30,7 +38,7 @@ router.route("/")
              //return res.redirect("/board" + idx); //등록 성공시 게시글 보기페이지로 이동
               return res.send(`<script>parent.location.href='/board/${idx}';</script>`);        
           } catch(err){
-              return res.send(`<script>alert('${err.message}');history.back();</script>`);
+              return res.send(`<script>alert('${err.message}');</script>`);
           }
       })
       // 게시글 수정

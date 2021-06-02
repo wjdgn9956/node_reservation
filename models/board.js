@@ -95,7 +95,7 @@ const board = {
 	*/
 	update : async function() {
 		try {
-			const sql = `UPDATE board2 
+			const sql = `UPDATE board
 									SET 
 										poster = :poster,
 										subject = :subject,

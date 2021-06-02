@@ -8,6 +8,7 @@ a { text-decoration: none; color:black;}
 ul { list-style: none; padding:0; margin:0;}
 .layout_width { max-width: 1200px;}
 
+.dn { display: none !important;}
 
 /* 공통 E */
 .form_wrap .title { font-weight: 700; text-align: center; font-size: 17px; margin-bottom: 30px;}
