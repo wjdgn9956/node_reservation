@@ -7,6 +7,28 @@ const router = express.Router();
 
 /** 게시글 목록, 등록, 삭제, 수정 */
 
+// 파일 업로드 설정 //
+
+const upload = multer({
+	storage : multer.diskStorage({
+		// 파일저장 폴더 
+		destination : (req, file, done) => {
+			done(null, 'public/editor_image/');
+		},
+		// 저장될 파일명 설정 
+		filename : (req, file, done) => {
+			// 파일이름_timestamp_확장자
+			const ext = path.extname(file.originalname)
+			const filename = path.basename(file.originalname, ext) + "_" + Date.now() + "_" + ext;
+			done(null, filename);
+		},
+	}),
+	limits : { filesize : 10 * 1024 * 1024 },
+});
+
+
+
+
 router.route("/")
       // 게시글 등록 form
       .get (async (req, res, next) => {
@@ -102,6 +124,25 @@ router.route("/")
          console.error(err);
          return res.send(`<script>alert('${err.message}');history.back();</script>`);
      }
- })
+ });
+ // 파일 업로드 처리 라우터 
+router.post("/file", upload.single('file'), async (req, res, next) => {
+	try {
+		if (!req.file) {
+			throw new Error("파일을 업로드해 주세요.");
+		}
+		
+		if (req.file.mimetype.indexOf('image') == -1) {
+			await fs.unlink(req.file.path);
+			throw new Error("이미지 형식의 파일만 업로드해 주세요.");
+		}
+		
+		return res.send(`<script>parent.insertImageEditor('${req.file.filename}');</script>`);
+		
+	} catch (err) {
+		return res.send(`<script>alert('${err.message}');</script>`);
+	}
+});
+
 
 module.exports = router;

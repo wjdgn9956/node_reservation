@@ -32,8 +32,13 @@
 	</dl>
 	<span id='addImage'>[이미지 추가]</span><br>
 	<input type='submit' class ="writeboard" value="{{ '글수정' if idx else '글작성' }}">
-	<div class="layer_dm"></div>
-	<div class="popup"></div>
 </form>
+
+<div id="layer_dim" class="dn"></div>
+<div id="layer_popup" class="dn">
+<form id='frmFile' method='post' action='/board/file' target='ifrmHidden' enctype='multipart/form-data'>
+	<input type='file' name='file'>
+</form>
+</div>
 
 {% endblock %}  
