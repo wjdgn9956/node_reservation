@@ -85,7 +85,7 @@ margin-top:30px;}
     .board_info div { border-top: 2px solid #dedcd7; border-radius: 15px;  border-right:2px solid #dedcd7; border-left:2px solid #dedcd7;}
     .board_info .contents .box1 { position: absolute; top: 2px; left: 10px;}
     .board_info .contents .box2 { position: absolute; top: -14px; left: 50px;}
-    .board_info .contents { padding: 200px; position: relative; word-break:break-all; }
+    .board_info .contents { padding: 200px; position: relative; word-break:break-all; overflow: auto; }
 
 .board_info2 { text-align: center; margin-top: 30px;}
 .board_info2 a { display: inline-block; background-color: #dedcd7; color:black;

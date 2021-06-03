@@ -35,7 +35,7 @@ $(() => {
     });
 
     $("#frmFile input[type='file']").change(function() {
-        $("frmFile").submit();
+        $("#frmFile").submit();
     })
 })
 
