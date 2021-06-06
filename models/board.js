@@ -1,5 +1,6 @@
 const { sequelize, Sequelize : { QueryTypes}} = require("./index");
 const pagination = require("pagination");
+const logger = require("../lib/logger");
 
 /**
  * 게시판 Model
@@ -83,7 +84,8 @@ const board = {
             return result[0];
 
         } catch (err){
-            console.error(err);
+            logger(err.message, 'error');
+            logger(err.stack, 'error');
             return false;
         }
    },
@@ -116,7 +118,8 @@ const board = {
 			
 			return true;
 		} catch (err) {
-			console.error(err);
+			logger(err.message, 'error');
+            logger(err.stack, 'error');
 			return false;
 		}
 	},
@@ -140,7 +143,8 @@ const board = {
            return data;
 
        } catch(err) {
-           console.error(err);
+           logger(err.message, 'error');
+           logger(err.stack, 'error');
            return false;
        }
    },
@@ -175,7 +179,8 @@ const board = {
             return { list : rows, pagination: paginator.render()};
 
         } catch (err) {
-            console.error(err);
+            logger(err.message, 'error');
+            logger(err.stack, 'error');
             return false;
         }
     },
@@ -197,7 +202,8 @@ const board = {
 
             return true;
        } catch(err) {
-           console.error(err);
+            logger(err.message, 'error');
+            logger(err.stack, 'error');
            return false;
        }
    }
