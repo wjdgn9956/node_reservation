@@ -7,15 +7,20 @@
 {% block content %}  
 
 {% include "../header.html" %}
-
+<div class="board_Wrap">
 <form method="post" action="/board{{ '?_method=PATCH' if idx }}" target='ifrmHidden'>
 	{% if idx %}
 	<input type='hidden' name='idx' value='{{ idx }}'>
 	{% endif %}
 	<dl>
+		
 		<dt>글쓴이</dt>
 		<dd>
-			<input type='text' name='poster' value='{{ poster }}'>
+		{% if isLogin %}  
+		<input type='text' name='poster' value='{{ member.memId }}' readonly>
+		 {% else  %}  
+		<input type='text' name='poster' value='{{ poster }}'>
+		{% endif %} 
 		</dd>
 	</dl>
 	<dl>
@@ -33,6 +38,7 @@
 	<span id='addImage'>[이미지 추가]</span><br>
 	<input type='submit' class ="writeboard" value="{{ '글수정' if idx else '글작성' }}">
 </form>
+</div>
 
 <div id="layer_dim" class="dn"></div>
 <div id="layer_popup" class="dn">

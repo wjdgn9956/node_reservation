@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const { sequelize, Sequelize : {QueryTypes}} = require("../models");
 const { joinValidator} = require("../middlewares/join_validator");
 const { loginValidator } = require("../middlewares/login_validator");
+const { findidValidator } = require("../middlewares/findid_validator");
 const router = express.Router();
 
 // 회원가입 처리 //
@@ -142,12 +143,44 @@ router.route("/login")
                throw new Error("회원정보 수정 실패!");    
            }
 
-           return res.send("<script>parent.location.href='/member/mypage';</script>");
+           return res.send("<script>parent.location.href='/member/mypage';alert('회원정보 수정이 완료되었습니다.');</script>");
 
          } catch(err){
             return res.send(`<script>alert('${err.message}');history.back();</script>`);
          }
     });
+
+    router.route("/findid")
+            .get((req, res, next) => {
+
+                res.render("member/findid");
+           })
+            .post (findidValidator, async (req, res, next) => {
+
+                try {
+                    const sql =  "SELECT * FROM member where memId = ?";
+
+                    const replacements = {
+                        email : req.body.email,
+                        phone : req.body.phone,
+                    };
+                        const matchid = await sequelize.query(sql, {
+                        replacements,
+                        type:QueryTypes.SELECT,
+                    })
+
+                    if(!matchid) {
+                        throw new Error("아이디 찾기 실패!");
+                    }
+                      
+                    return res.send(`<script>parent.location.href='/member/findid';</script>`);
+                    
+                  
+                    
+                } catch(err){
+                    return res.send(`<script>alert('${err.message}');</script>`);
+                }
+            })
          
     
  

@@ -51,6 +51,7 @@ router.route("/")
       // 게시글 등록
       .post(async (req, res, next) => {
           try {
+            
             const idx = await board.data(req.body)
                                     .validator("register")
                                     .register();

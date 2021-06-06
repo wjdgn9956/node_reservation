@@ -17,7 +17,7 @@ dt { display: table-cell; width:120px; vertical-align: middle;}
 dd { display: table-cell;}
 
 
-
+/* 회원가입, 로그인 폼 S */
 input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
     width:100%; height:30px; border-radius: 7px; outline: none; border: 1px solid #948c8c;
     margin-bottom: 10px;
@@ -28,6 +28,8 @@ input[type="text"], input[type="password"], input[type="email"], input[type="num
 cursor: pointer; border-radius: 10px;}
 .form_wrap .btn1:hover { background-color: cornflowerblue; color:white; border:0;}
 .form_wrap .logo {text-align: center; font-size: 24px; margin-bottom: 20px;}
+
+/* 회원가입, 로그인 폼 E */
 
 
 /* main페이지 상단메뉴 */
@@ -73,6 +75,8 @@ font-size: 20px;}
 
 
 /* 게시판 board */
+
+.board_Wrap { padding: 15px;}
 .writeboard { width: 200px; height: 40px; margin:0 auto; display: block;
 background-color: #dedcd7; color:black; border:0; cursor: pointer; border-radius: 10px;
 margin-top:30px;}
@@ -81,11 +85,11 @@ margin-top:30px;}
 
 .board_info { margin:0 auto; width: 600px; border: 4px solid #dedcd7; margin-top:80px; padding:30px;
     border-radius: 15px;}
-    .board_info div { border-bottom:  2px solid #dedcd7; padding: 10px; border-radius: 15px; margin:10px;}
-    .board_info div { border-top: 2px solid #dedcd7; border-radius: 15px;  border-right:2px solid #dedcd7; border-left:2px solid #dedcd7;}
-    .board_info .contents .box1 { position: absolute; top: 2px; left: 10px;}
-    .board_info .contents .box2 { position: absolute; top: -14px; left: 50px;}
-    .board_info .contents { padding: 200px; position: relative; word-break:break-all; overflow: auto; }
+.board_info div { border-bottom:  2px solid #dedcd7; padding: 10px; border-radius: 15px; margin:10px;}
+.board_info div { border-top: 2px solid #dedcd7; border-radius: 15px;  border-right:2px solid #dedcd7; border-left:2px solid #dedcd7;}
+.board_info .contents .box1 { position: absolute; top: 2px; left: 10px;}
+.board_info .contents .box2 { position: absolute; top: -14px; left: 50px;}
+.board_info .contents { padding: 200px; position: relative; word-break:break-all; overflow: auto; }
 
 .board_info2 { text-align: center; margin-top: 30px;}
 .board_info2 a { display: inline-block; background-color: #dedcd7; color:black;
@@ -106,3 +110,8 @@ border-radius: 15px;}
     cursor:pointer; height:100%; z-index: 0;}
 #layer_popup { background-color: #ffffff; position:fixed; top:0; right:0; width:320px; height:300px;
 top: calc(50% - 160px); left: calc(50% - 150px); z-index: 1;  }
+
+
+/* 아이다 칮기 */
+.findid { text-align: center; margin-top:20px;}
+.findid a { margin: 0 10px; }

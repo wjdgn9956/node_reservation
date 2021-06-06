@@ -1,0 +1,23 @@
+{% extends "../layout.html" %}  
+
+
+{% block content %}  
+<div class="form_wrap layout_width">
+    <form method ="post" action="/member/findid" target ="ifrmHidden">
+        <div class="logo">
+            <a href="/"> 
+            <i class ="xi-hotel"></i> 
+            <span>YOONSHOTEL</span>
+            </a> 
+        </div> 
+        <div class="title">아이디 찾기</div>
+        <input type="email" name ="email" placeholder="이메일을 입력하세요">
+        <input type="number" name ="phone" placeholder="핸드폰 번호를 입력하세요">
+        <input type="submit" class ="btn1" value ="아이디 찾기">
+    </form>
+    {% if match %}
+    <div class="yourid">당신의 아이디는 {{ member.memId }} 입니다.</div>   
+    {% endif %}  
+</div>   
+
+{% endblock %}  

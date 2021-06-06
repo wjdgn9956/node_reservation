@@ -39,6 +39,7 @@ $(() => {
     })
 })
 
+// 파일 처리 //
 function insertImageEditor(imageName) {
 	const tag = `<img src='/editor_image/${imageName}' style='max-width:500px;'>`;
 	

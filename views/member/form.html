@@ -50,7 +50,7 @@
     <dl>
         <dt>주소</dt>
         <dd>
-            <input type="text" name ="address" class="address" value = "{{ member.address }}">
+            <input type="text" name ="address" class="address" value = "{{ member.address }}" readonly>
         </dd>
     </dl>
     <input  class ="btn1" type="submit" value ="{{ '회원정보수정' if isLogin else '가입하기' }}">
