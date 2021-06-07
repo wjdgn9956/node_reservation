@@ -44,6 +44,25 @@ module.exports.joinValidator = async (req, res, next) => {
             }
         }
 
+        /** 휴대폰 번호 유효성 검사 S */
+
+        if (req.body.phone) {
+            let phone = req.body.phone;
+            phone = phone.replace(/[^\d]/g, "");
+
+            // 휴대폰 번호인지 체크 //
+            const mobilepattern = /01[016789]\d{3,4}\d{4}/;
+
+            if (!mobilepattern.test(phone)) {
+                throw new Error("휴대전화 번호 형식이 아닙니다!");
+            }
+           
+
+            req.body.phone = phone.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3");
+        }
+       /** 휴대폰 번호 유효성 검사 E */
+
+
         next(); // 다음 미들웨어로 이동
     } catch (err) {
         return res.send(`<script>alert('${err.message}');</script>`);

@@ -35,7 +35,7 @@ cursor: pointer; border-radius: 10px;}
 /* main페이지 상단메뉴 */
 .nav  {  background-color: 
     #dedcd7; padding : 10px;}
-.nav .logo {float:left; width: calc( 100% / 2 + 30px); text-align: right;
+.nav .logo {float:left; width: calc( 100% / 2 + 70px); text-align: right;
 font-size: 20px;}
 .nav .info {float: right;  line-height: 30px;}
 .nav .info a { padding:5px;}

@@ -4,11 +4,12 @@ const { sequelize, Sequelize : {QueryTypes}} = require("../models");
 const { joinValidator} = require("../middlewares/join_validator");
 const { loginValidator } = require("../middlewares/login_validator");
 const { findidValidator } = require("../middlewares/findid_validator");
+const { memberOnly, guestOnly } = require("../middlewares/member_only");
 const router = express.Router();
 
 // 회원가입 처리 //
 router.route("/join")
-    .get((req, res, next) => { // 회원가입 폼
+    .get( guestOnly, (req, res, next) => { // 회원가입 폼
 
         /** 
         if (req.isLogin) { //로그인 상태인 경우 접근 불가.
@@ -96,7 +97,7 @@ router.route("/login")
         res.redirect("/");
     })
 
-    router.get("/mypage", (req, res, next) => {
+    router.get("/mypage", memberOnly, (req, res, next) => {
         res.render("member/mypage");
     })
 
