@@ -2,14 +2,13 @@
 
 {% block content %} 
 <div class="nav">
- <div class="box logo">
-    <a href="/"><i class ="xi-hotel"> YOONSHOTEL</i></a>
- </div>
+ 
    
-   <div class="box info">
+<div class="box info">
 {% if isLogin %} 
 <a href="/member/mypage">{{ member.memId}}님의 마이페이지</a>
 <a href="/member/join">회원정보수정</a>
-<a href="/member/logout"><i class ="xi-log-out"></i>로그아웃</a>
 {% endif %} 
+</div>
+</div>
 {% endblock %} 
