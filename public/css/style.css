@@ -115,3 +115,11 @@ top: calc(50% - 160px); left: calc(50% - 150px); z-index: 1;  }
 /* 아이다 칮기 */
 .findid { text-align: center; margin-top:20px;}
 .findid a { margin: 0 10px; }
+
+
+/* quick_bar */
+.quick_bar { border:1px solid black; width:120px; height: 120px; background-color: white; z-index: 20;
+position: fixed; top:60px; right:8px;}
+.quick_bar li a { background-color: #dedcd7; display: block; width:100px; height: 40px; border:1px solid green;
+margin-bottom: 3px; text-align: center; line-height: 38px; color:black; margin:10px auto;
+ z-index: 31;}
