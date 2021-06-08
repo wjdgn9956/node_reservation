@@ -7,12 +7,17 @@
 <ul>
     {% for item in list %}  
     <li>
-        <a href="/board/{{ item.idx }}">작성자 : {{ item.poster }} / 제목: {{ item.subject }} / 작성일 : {{ item.regDt }}</a>
+        <a href="/board/{{ item.idx }}">작성자 : {{ item.poster }} / 제목: {{ item.subject }} / 작성일 : {{ item.regDt }}
+        </a>
     </li>
     {% endfor %} 
 </ul>
 <div class="pagination">{{ pagination | safe }}</div>
 </div>
+<div class="board_info2">
+<a href='/board'>게시글 등록</a>
+</div>
+
 
 
 

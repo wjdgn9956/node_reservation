@@ -13,9 +13,10 @@
 
 
 <div class="board_info2">
+   
     <a href='/board/list'>게시글 목록</a>
     <a href='/board/delete/{{ idx }}' onclick="return confirm('정말 삭제하시겠습니까?');">게시글 삭제</a>
-    <a href='/board?idx={{ idx }}'>게시글 수정</a>
+    <a href='/board?idx={{ idx }}'>게시글 수정</a> 
     <a href='/board'>게시글 등록</a>
 </div>
 {% endblock %}  

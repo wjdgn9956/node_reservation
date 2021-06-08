@@ -9,7 +9,7 @@ const router = express.Router();
 
 // 회원가입 처리 //
 router.route("/join")
-    .get( guestOnly, (req, res, next) => { // 회원가입 폼
+    .get((req, res, next) => { // 회원가입 폼
 
         /** 
         if (req.isLogin) { //로그인 상태인 경우 접근 불가.

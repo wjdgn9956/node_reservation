@@ -1,0 +1,13 @@
+.footer_info  { background-color: #dedcd7; margin-top: 80px;}
+.footer_info .box { float:left; width: 50%; padding: 8px 0;}
+.footer_info:after { clear:left; content:""; display:block;}
+
+.box.cs_info  { text-align:center; margin-top:10px;}
+
+
+.box.cs_info .title1 { font-weight:600;}
+.box.cs_info .title2 { font-weight:500; margin-bottom:5px;}
+.box.cs_info .title3 { font-weight:300; font-size:14px;}
+
+.company_info { font-size:14px }
+
