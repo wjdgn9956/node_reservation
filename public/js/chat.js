@@ -65,7 +65,7 @@ socket.on("chat", (data) => {
 	html = html.replace(/<%=addClass%>/g, addClass);
 	html = html.replace(/<%=userNm%>/g, data.userNm);
 	html = html.replace(/<%=message%>/g, data.message);
-	
+	html = html.replace(/<%=room%>/g, data.room);
 	$(".chat .contents").append(html);
 	chat.scrollBottom();
 });

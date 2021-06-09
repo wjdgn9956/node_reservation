@@ -9,8 +9,10 @@
  <script src ="/js/chat.js"></script>
 {% endblock %}  
 
-{% block content %}  
+{% block content %}
+
 <div class="chat">
+    
     <ul class= "contents">
 
     </ul>
@@ -21,6 +23,7 @@
 </div>
 
 <script type ="text/html" id ="chat_template">
+    
     <li class = '<%=addClass%>'>
       <span class ="userNm"><%=userNm%></span>
       <span class ="message"><%=message%></span>  

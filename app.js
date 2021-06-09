@@ -13,7 +13,8 @@ const app = express();
 
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-chat(io);
+chat(io); // 채팅 미들웨어
+
 
 
 /** 라우터 */
@@ -70,6 +71,19 @@ app.use(loginSession);
 app.use("/member", memberRouter);
 app.use("/", mainRouter);
 app.use("/board", boardRouter);
+
+
+app.get("/chat", (req, res, next) => {
+    res.render("chat");
+})
+
+app.get("/chat/room", (req, res, next) => {
+
+    if (!req.query.room || !req.query.userNm) {
+		return res.send("<script>alert('방이름과 사용자명을 모두 입력하세요.');history.back();</script>");
+	}
+	return res.render('chat_room');
+})
 
 
 

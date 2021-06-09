@@ -10,19 +10,20 @@
 
 
 {% block content %}  
-<form method = "get" action="/chat/room" autocomplete="off">
+<form id ="form" method = "get" action="/chat/room" autocomplete="off">
+    <div class="title_chat">서로에게 맞는 여행 메이트를 찾아보세요!</div>
     <dl>
         <dt>방이름</dt>
         <dd>
-            <input type="text" name ="room">
+            <input type="text" name ="room" placeholder="나라명으로 입력해주세요 ex)호주, 베트남, 필리핀">
         </dd>
     </dl>
     <dl>
-        <dt>사용자명</dt>
+        <dt>닉네임</dt>
         <dd>
             <input type="text" name ="userNm">
         </dd>
     </dl>
-    <input type="submit" value ="입장하기">
+    <input type="submit" value ="입장하기" class ="btn">
 </form>
 {% endblock %}
