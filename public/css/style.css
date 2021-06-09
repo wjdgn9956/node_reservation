@@ -120,7 +120,11 @@ top: calc(50% - 160px); left: calc(50% - 150px); z-index: 1;  }
 /* quick_bar */
 .quick_bar { border:1px solid black; width:120px; height: 120px; background-color: #dedcd7; z-index: 20;
 position: fixed; top:60px; right:8px;}
+<<<<<<< HEAD
 .quick_bar li a { background-color: white; display: block; width:100px; height: 40px; 
+=======
+.quick_bar li a { background-color: #dedcd7; display: block; width:100px; height: 40px; border: 1px solid black;
+>>>>>>> e6935514035fc9dbffeb4590a3fca029afc723f9
 margin-bottom: 3px; text-align: center; line-height: 38px; color:black; margin:10px auto;
  z-index: 31;}
  .quick_bar li a:hover{ background-color: black; color:white;}
