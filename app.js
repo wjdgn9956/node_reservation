@@ -8,6 +8,13 @@ const session = require("express-session");
 const morgan = require("morgan");
 const { sequelize } = require("./models");
 const { loginSession } = require("./middlewares/login_session");
+const chat = require('./middlewares/chat');
+const app = express();
+
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+chat(io);
+
 
 /** 라우터 */
 const memberRouter = require("./routes/member");
@@ -18,7 +25,8 @@ const boardRouter = require("./routes/board");
 dotenv.config();
 
 
-const app = express();
+
+
 
 
 app.set("port", process.env.PORT || 3000);
@@ -64,6 +72,7 @@ app.use("/", mainRouter);
 app.use("/board", boardRouter);
 
 
+
 // 없는 페이지 미들웨어 처리
 app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} 는 없는 페이지 입니다.`);
@@ -82,6 +91,6 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(app.get("port"), ()=>{
+server.listen(app.get("port"), ()=>{
     console.log(app.get("port"), "번에서 서버 대기중");
 })

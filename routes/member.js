@@ -89,12 +89,7 @@ router.route("/login")
     // 회원 로그아웃 //
     router.get("/logout", (req, res, next) => {
         req.session.destroy();
-        delete req.member;
-        delete res.locals.member;
-
-        req.islogin = res.locals.isLogin = false;
-
-        res.redirect("/");
+        return res.redirect("/");
     })
 
     router.get("/mypage", memberOnly, (req, res, next) => {
