@@ -9,6 +9,7 @@ const chat = {
 	room : "", // 방이름 
 	userNm : "", // 사용자명
 	
+	
 	/** 
 	* 페이지 접속시 방이름, 사용자 설정
 	*
@@ -41,6 +42,7 @@ const chat = {
 			room : this.room,
 			userNm : this.userNm,
 			message : message,
+			
 		};
 		socket.emit("chat", data);
 	},
@@ -62,10 +64,12 @@ socket.on("chat", (data) => {
 	if (data.userNm == chat.userNm) {
 		addClass = 'mine';
 	}
+
 	html = html.replace(/<%=addClass%>/g, addClass);
 	html = html.replace(/<%=userNm%>/g, data.userNm);
 	html = html.replace(/<%=message%>/g, data.message);
 	html = html.replace(/<%=room%>/g, data.room);
+
 	$(".chat .contents").append(html);
 	chat.scrollBottom();
 });
@@ -78,12 +82,32 @@ $(function() {
 		if (e.keyCode == 13) { // 엔터키를 입력한 경우 
 			const message = $(this).val().trim();
 			if (message) { // 전송 문구가 있는 경우는 서버로 전송 
-				chat.send(message);
+				chat.send(message+getTime())
 				$(this).val('');
 			}
 		}
 	});
 });
+
+
+// 현재 날짜 /yy/mm/dd/hh/mm //
+function getTime() {
+
+	const date = new Date();
+	const year = date.getFullYear().toString();
+
+	let month = date.getMonth()+1;
+	month = (month < 10)? "0"+ month.toString() : month.toString();
+	
+	let day = date.getDate()
+	day = (day < 10)? "0"+ day.toString() : day.toString();
+
+	const hour = date.getHours();
+	let min = date.getMinutes();
+	min = (min < 10)? "0" + min.toString() : min.toString();
+	
+	return year + "-" + month + "-" + day + "-" + hour + ":" + min;
+}
 
 /*
 socket.emit('chat', '테스트 채팅 메세지');

@@ -25,3 +25,14 @@ width:100px; height: 40px; border-radius: 5px; cursor: pointer; margin:0 auto; d
 #form { width: 500px; margin: 100px auto; border :3px solid #d5d5d5; 
 padding: 40px; }
 
+.roomNm { margin-bottom:3px; color:black; font-weight: 600;}
+h1{ text-align: center;}
+
+.chat #word:hover {background-color: #dedcd7;}
+.chat .exit  { color: black;  display:block; width:100px; background-color: #dedcd7; text-align: center;
+margin:0 auto; height:30px; line-height: 30px; border-radius: 5px;}
+.chat .exit:hover{ background-color: black; color:white;}
+
+/* 사진 추가 아이콘 */
+.xi-image-o { font-size: 30px; cursor: pointer;}
+

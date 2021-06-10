@@ -16,6 +16,8 @@ const io = require('socket.io')(server);
 chat(io); // 채팅 미들웨어
 
 
+/** 관리자 라우터 */
+const adminRouter = require("./routes/admin");
 
 /** 라우터 */
 const memberRouter = require("./routes/member");
@@ -66,6 +68,9 @@ app.use(session({
 
 }));
 app.use(loginSession);
+
+/**관리자 라우터 등록 */
+app.use("/admin", adminRouter);
 
 /** 라우터 등록 */
 app.use("/member", memberRouter);
